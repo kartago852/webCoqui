@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/','IndexController');
+
+Route::resource('gallery','GalleryController');
+
+Route::resource('contact','ContactController');
