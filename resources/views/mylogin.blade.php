@@ -30,144 +30,97 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
 </head>
 <body class="animsition">
 
-	<!-- Header -->
+    <!-- Header -->
 	@include('header')
 
     <!-- Sidebar -->
     @include('sidebar')
 
-	<!-- Slide1 -->
-	<section class="section-slide">
-		<div class="wrap-slick1">
-			<div class="slick1">
-				<div class="item-slick1 item1-slick1" style="background-image: url(images/slide1-01.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-							Bienvenidos a
-						</span>
 
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-							Disfraces Coqui
-						</h2>
-
-						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
-							<!-- Button1 -->
-							<a href="{{ url('gallery')}}" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Mira la Galeria
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick1 item2-slick1" style="background-image: url(images/master-slides-02.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
-							Bienvenidos a
-						</span>
-
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-							Disfraces Coqui
-						</h2>
-
-						<div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
-							<!-- Button1 -->
-							<a href="{{ url('gallery')}}" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Mira la galeria
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick1 item3-slick1" style="background-image: url(images/master-slides-01.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-							Bienvenidos a
-						</span>
-
-						<h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-							Disfraces Coqui
-						</h2>
-
-						<div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
-							<!-- Button1 -->
-							<a href="{{ url('gallery')}}" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Mira la galeria
-							</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="wrap-slick1-dots"></div>
-		</div>
-	</section>
-
-	<!-- Welcome -->
-	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
-		<div class="container">
+    <section class="section-welcome bg1-pattern p-t-120 p-b-105">
+        <div class="container">
 			<div class="row">
-				<div class="col-md-6 p-t-45 p-b-30">
-					<div class="wrap-text-welcome t-center">
-						<span class="tit2 t-center">
-							Italian Restaurant
-						</span>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">{{ __('Login') }}</div>
+            
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+            
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+            
+                                        <div class="col-md-6">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group row">
+                                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+            
+                                        <div class="col-md-6">
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group row">
+                                        <div class="col-md-6 offset-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            
+                                                <label class="form-check-label" for="remember">
+                                                    {{ __('Remember Me') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-8 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Login') }}
+                                            </button>
+            
+                                            @if (Route::has('password.request'))
+                                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    {{ __('Forgot Your Password?') }}
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						<h3 class="tit3 t-center m-b-35 m-t-5">
-							Welcome
-						</h3>
 
-						<p class="t-center m-b-22 size3 m-l-r-auto">
-							Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia, nisl ante egestas mi, ac facilisis ligula sem id neque.
-						</p>
-
-						<a href="about.html" class="txt4">
-							Our Story
-							<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-md-6 p-b-30">
-					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<img src="images/our-story-01.jpg" alt="IMG-OUR">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-    <!-- Intro -->
-
-    
-    <!-- Our menu -->
-    
-
-	<!-- Event -->
-
-
-    <!-- Booking -->
-    
-
-	<!-- Review -->
-
-
-	<!-- Video -->
-
-
-	<!-- Blog -->
-
-
-	<!-- Sign up -->
-
-
-	<!-- Footer -->
+    <!-- Footer -->
 	@include('footer')
 
-
+    
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

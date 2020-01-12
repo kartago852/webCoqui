@@ -16,3 +16,8 @@ Route::resource('/','IndexController');
 Route::resource('gallery','GalleryController');
 
 Route::resource('contact','ContactController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
