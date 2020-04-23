@@ -17,6 +17,8 @@ Route::resource('gallery','GalleryController');
 
 Route::resource('contact','ContactController');
 
+Route::resource('admin','AdminController');
+
 
 Auth::routes();
 
