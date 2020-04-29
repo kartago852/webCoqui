@@ -38,7 +38,7 @@
     <!-- Sidebar -->
     @include('sidebar')
 
-	<!-- Welcome -->
+	<!-- Lista de Opciones -->
 	<section class="section-welcome bg1-pattern p-t-120 p-b-105">
         <div class="container">
             <div class="row bg0">
@@ -48,29 +48,29 @@
                         <ul class="main_menu">
 
                             <li>
-                                <a id='addAlbum' href='' class=""><span>Añadir album</span></a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Añadir album</button>
                             </li>
 
                             <li>
-                                <a id='deleteAlbum' href='' class="m-b-22"><span>Borrar album</span></a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Borrar album</button>
                             </li>
 
                             <li>
-                                <a id='addFoto' href='' class="m-b-22"><span>Añadir foto</span></a>
-                            </li>
-
-                            <li>
-                                <a href='' class="m-b-22"><span>Cerrar sesion</span></a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Subir Foto</button>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-	</section>
+    </section>
 
-    <!-- Intro -->
+    <!-- Dialogo nueva foto -->
+    @include('addpicture')
 
+
+    <!-- Lista de Albumes -->
+    @include('name')
 
     <!-- Our menu -->
 
@@ -123,6 +123,10 @@
 	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="js/style.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
 </body>
 </html>

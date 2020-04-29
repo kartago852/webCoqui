@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $departamentos = array();
+        return view('admin',compact('departamentos'));
+
     }
 
     /**
@@ -34,7 +37,21 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('avatar');
+
+            if ($file != "" && $request->hasFile('avatar')) {
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path().'/images/', $name);
+            }
+            else{
+                $name = "Sin Imagen.jpg";
+            }
+            $image = new Image();
+            $image->name= $request->input('nombre');
+            $image->foto= $name;
+            $image->save();
+
+            return 'Se guardo correctamente'; //Ver nombre archivo
     }
 
     /**

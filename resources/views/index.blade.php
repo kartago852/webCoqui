@@ -142,15 +142,15 @@
 
     <!-- Intro -->
 
-    
+
     <!-- Our menu -->
-    
+
 
 	<!-- Event -->
 
 
     <!-- Booking -->
-    
+
 
 	<!-- Review -->
 
@@ -193,7 +193,8 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
+	<script type="text/javascript" src="js/main.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="js/style.js"></script>
 </body>
 </html>
