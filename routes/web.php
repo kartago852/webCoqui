@@ -17,8 +17,12 @@ Route::resource('gallery','GalleryController');
 
 Route::resource('contact','ContactController');
 
+Route::resource('album','AlbumController');
+
 Route::resource('admin','AdminController');
 
+/* Route::post('album','AlbumController');
+ */
 
 Auth::routes();
 
